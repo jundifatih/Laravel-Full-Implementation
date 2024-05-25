@@ -33,10 +33,21 @@
                                     <a class="nav-link fw-bold" href="{{ route('dashboard.products') }}">Manage Product</a>
                                 </li>
                             @endif --}}
-
-                            <li class="nav-item">
-                                <a class="nav-link fw-bold bg-primary rounded-1 text-center px-3 " href="{{route('get_login')}}">Login</a>
-                            </li>
+                            @auth
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{route('get_profile')}}">Profile</a></li>
+                                        <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
+                                    </ul>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold bg-primary rounded-1 text-center px-3 " href="{{route('get_login')}}">Login</a>
+                                </li>
+                            @endauth
                         {{-- @else --}}
                             {{-- <li class="nav-item">
                                 <a class="nav-link fw-bold" href="{{ route('login') }}">Login</a>

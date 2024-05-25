@@ -106,10 +106,49 @@ class UserController extends Controller
         return view('dashboard.index', compact('user'));
     }
 
+    public function getProfile(){
+        $user = Auth::user();
+        return view('profile.index', compact('user'));
+    }
+    
     public function logout()
     {
         Auth::logout();
 
         return redirect()->route('get_login');
+    }
+
+    public function loginGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function loginGoogleCallback()
+    {
+        $user = Socialite::driver('google')->user();
+
+        $existingUser = User::where('email', $user->email)->first();
+
+        if ($existingUser) {
+            Auth::login($existingUser);
+        } else {
+            $newUser = new User();
+            $newUser->google_id = $user->id;
+            $newUser->name = $user->name;
+            $newUser->email = $user->email;
+            $newUser->password = Hash::make(Str::random(15));
+            $newUser->gender = 'male';
+            $newUser->age = 25;
+            $newUser->birth = '1996-05-13';
+            $newUser->address = 'Jakarta Selatan';
+            $newUser->save();
+
+            // assign role
+            $newUser->assignRole('user');
+
+            Auth::login($newUser);
+        }
+
+        return redirect()->route('dashboard_user');
     }
 }

@@ -36,8 +36,7 @@
             </div>
 
             <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
-            <a href="#" class="w-100 btn btn-lg btn-danger mt-2">Login with Google</a>
-            {{-- <a href="{{ route('login_google') }}" class="w-100 btn btn-lg btn-danger mt-2">Login with Google</a> --}}
+            <a href="{{ route('login_google') }}" class="w-100 btn btn-lg btn-danger mt-2">Login with Google</a>
         </form>
     </div>
 </div>
