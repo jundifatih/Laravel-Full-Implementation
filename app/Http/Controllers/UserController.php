@@ -51,7 +51,7 @@ class UserController extends Controller
         // $user->assignRole($request->role);
 
         if ($user) {
-            return redirect()->route('get_register')
+            return redirect()->route('get_login')
                 ->with('success', 'User created successfully');
         } else {
             return redirect()->route('get_register')

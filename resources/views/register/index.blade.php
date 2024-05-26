@@ -4,7 +4,7 @@
 @section('content')
 <div class="row justify-content-center mt-5">
     <div class="col-md-4 border p-4 rounded">
-        <h1 class="h3 mb-3 fw-normal text-center">Halaman Register User</h1>
+        <h1 class="h3 mb-3 fw-normal text-center fw-bold">Halaman Register User</h1>
 
         <!-- error message -->
         @if (session('error'))
@@ -96,7 +96,7 @@
                 @enderror
             </div>
 
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            <button type="submit" class="w-100 btn btn-lg btn-success">Register</button>
         </form>
     </div>
 </div>

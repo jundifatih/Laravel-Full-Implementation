@@ -43,7 +43,10 @@
                                     style="overflow: hidden;max-width: 400px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin: 10px auto;">
                                     {{ $item->description }}
                                 </p>
-                                <button class="btn btn-primary w-100">Pesan Sekarang</button>
+                                <button class="btn btn-primary w-100">
+                                    {{-- <a href="{{route('get_products_detail')}}">Pesan Sekarang</a> --}}
+                                    <a href="#" class="text-white text-decoration-none fw-bold">Pesan Sekarang</a>
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -4,7 +4,7 @@
 @section('content')
 <div class="row justify-content-center mt-5">
     <div class="col-md-4 border p-4 rounded">
-        <h1 class="h3 mb-3 fw-normal text-center">Halaman Login User</h1>
+        <h1 class="h3 mb-3 fw-normal text-center fw-bold">Halaman Login Pengguna</h1>
 
         <!-- error message -->
         @if (session('error'))
@@ -34,9 +34,10 @@
                     <div class="text-danger mt-2">{{ $message }}</div>
                 @enderror
             </div>
-
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
-            <a href="{{ route('login_google') }}" class="w-100 btn btn-lg btn-danger mt-2">Login with Google</a>
+            <p>Belum punya akun? <a href="{{route('get_register')}}" class="fw-bold text-black">Daftar Sekarang</a></p>
+            <button type="submit" class="btn btn-lg btn-success mb-3 w-100">Login</button>
+            <p class="text-center">Atau</p>
+            <a href="{{ route('login_google') }}" class="w-100 btn btn-lg btn-primary"><i class="bi bi-google mx-1"></i> Login Google</a>
         </form>
     </div>
 </div>

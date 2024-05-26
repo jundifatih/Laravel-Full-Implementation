@@ -8,10 +8,11 @@
     <title>@yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light py-3 px-2" style="background-color: rgb(241, 243, 245)">
+        <nav class="navbar navbar-expand-lg py-3 px-2" style="background-color: rgb(241, 243, 245)">
             <div class="container-fluid">
                 {{-- <a class="navbar-brand fw-bold" href="#">AMANDEMY MARKET</a> --}}
                 <img src="https://amandemy.co.id/images/amandemy-logo.png" alt="logo" width="130">
@@ -35,8 +36,8 @@
                             @endif --}}
                             @auth
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{ Auth::user()->name }}
+                                    <a class="nav-link dropdown-toggle bg-primary rounded-1 fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-person-circle"></i> {{ Auth::user()->name }}
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="{{route('get_profile')}}">Profile</a></li>
