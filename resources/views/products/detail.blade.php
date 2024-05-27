@@ -2,15 +2,15 @@
 @section('title', 'Profile')
 
 @section('content')
-<div class="mt-5 mx-4 border p-4">
+<div class="my-5 mx-4 border p-4">
     <h3 class="fw-bold text-center">Detail Produk</h3>
-    <div class="d-flex align-items-center gap-5 mt-4">
-        <div>
-            <img src="{{$products->image}}" alt="" width="600" height="400">
+    <div class="d-flex flex-wrap align-items-center gap-5 mt-4">
+        <div class="col-lg-5">
+            <img src="{{$products->image}}" alt="image" width="500" height="400">
         </div>
-        <div>
+        <div class="col-lg-6">
             <h4 class="fw-bold">{{$products->name}}</h4>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between gap-5">
                 <div>
                     <p>Stok : {{$products->stock}}</p>
                     <p>Kondisi : {{$products->condition}}</p>
@@ -23,6 +23,9 @@
                 </div>
             </div>
             <p style="text-align: justify">{{$products->description}}</p>
+            <a href="">
+                <button class="btn btn-dark ms-auto">Checkout</button>
+            </a>
         </div>
     </div>
 </div>
