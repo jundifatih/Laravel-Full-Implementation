@@ -43,15 +43,15 @@
                                     style="overflow: hidden;max-width: 400px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin: 10px auto;">
                                     {{ $item->description }}
                                 </p>
-                                @auth
+                                {{-- @auth --}}
                                 <button class="btn btn-primary w-100">
                                     <a href="/products/{{$item->id}}/detail" class="text-white text-decoration-none fw-bold">Pesan Sekarang</a>
                                 </button>
-                                @else
-                                <button class="btn btn-primary w-100">
+                                {{-- @else --}}
+                                {{-- <button class="btn btn-primary w-100">
                                     <a href="#" class="text-white text-decoration-none fw-bold">Pesan Sekarang</a>
-                                </button>
-                                @endauth
+                                </button> --}}
+                                {{-- @endauth --}}
                             </div>
                         </div>
                     </div>

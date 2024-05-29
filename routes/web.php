@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
+// use App\Http\Middleware\AuthMiddleware;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +22,8 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'getHome'])->name('get_home');
 Route::get('/products', [ProductsController::class, 'getProducts'])->name('get_products');
-Route::get('/products/{id}/detail', [ProductsController::class, 'getProductsDetail'])->name('get_products_detail');
+// Route::get('/products/{id}/detail', [ProductsController::class, 'getProductsDetail'])->name('get_products_detail');
+Route::get('/products/{id}/detail', [ProductsController::class, 'getProductsDetail'])->name('get_products_detail')->middleware('authmiddleware');
 
 Route::get('/register', [UserController::class, 'getRegister'])->name('get_register');
 Route::post('/register-user', [UserController::class, 'registerUser'])->name('register_user');

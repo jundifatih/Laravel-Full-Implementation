@@ -93,7 +93,8 @@ class UserController extends Controller
         $user = Auth::user();
 
         // get user role
-        // dd($user->roles[0]->name);
+        // $userAuth = User::find($user->id);
+        // dd($userAuth->roles[0]->name);
         
         // change role
         // $user->roles()->detach();
@@ -144,7 +145,7 @@ class UserController extends Controller
             $newUser->save();
 
             // assign role
-            $newUser->assignRole('user');
+            $newUser->assignRoles('user');
 
             Auth::login($newUser);
         }
