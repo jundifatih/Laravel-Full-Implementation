@@ -43,12 +43,12 @@ class UserController extends Controller
             'age' => $request->age,
             'birth' => $request->birth,
             'address' => $request->address,
-            'role'=>$request->role,
+            // 'role'=>$request->role,
         ]);
 
         // assign role
         // $user->assignRole('user');
-        // $user->assignRole($request->role);
+        $user->assignRole($request->role);
 
         if ($user) {
             return redirect()->route('get_login')

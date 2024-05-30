@@ -14,7 +14,6 @@
     <header>
         <nav class="navbar navbar-expand-lg py-3 px-2" style="background-color: rgb(241, 243, 245)">
             <div class="container-fluid">
-                {{-- <a class="navbar-brand fw-bold" href="#">AMANDEMY MARKET</a> --}}
                 <img src="https://amandemy.co.id/images/amandemy-logo.png" alt="logo" width="130">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,6 +34,11 @@
                                 </li>
                             @endif --}}
                             @auth
+                                @if (Auth::user()->roles[0]->name == 'superadmin')
+                                    <li class="nav-item">
+                                        <a class="nav-link fw-bold" href="{{ route('get_products') }}">Manage Products</a>
+                                    </li>
+                                @endif
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle bg-primary rounded-1 fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi bi-person-circle"></i> {{ Auth::user()->name }}
@@ -49,14 +53,6 @@
                                     <a class="nav-link fw-bold bg-primary rounded-1 text-center px-3 " href="{{route('get_login')}}">Login</a>
                                 </li>
                             @endauth
-                        {{-- @else --}}
-                            {{-- <li class="nav-item">
-                                <a class="nav-link fw-bold" href="{{ route('login') }}">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link fw-bold" href="{{ route('register') }}">Register</a>
-                            </li> --}}
-                        {{-- @endauth --}}
                     </ul>
                 </div>
             </div>
